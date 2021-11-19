@@ -1,0 +1,17 @@
+feign:
+  okhttp:
+    enabled: true
+  httpclient:
+    #关闭默认的httpclient
+    enabled: false
+    #整个连接池最大连接数
+    max-connections: 400
+    #每个路由的最大连接，默认50
+    max-connections-per-route: 80
+    #超时，默认2000
+    connection-timeout: 5000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 12000

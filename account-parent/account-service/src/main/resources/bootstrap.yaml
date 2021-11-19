@@ -1,0 +1,62 @@
+server:
+  port: 7888
+
+spring:
+  application:
+    name: account-service
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        register-enabled: true
+      config:
+        file-extension: yaml
+
+
+seata:
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: ali-test-nacos.lp.com:80
+      group : "SEATA_GROUP"
+      namespace: 54ad6dd2-ed0f-42fa-b3bf-adeb0f951bee
+      username: nacos
+      password: nacos
+  config:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: ali-test-nacos.lp.com:80
+      group : "SEATA_GROUP"
+      namespace: 54ad6dd2-ed0f-42fa-b3bf-adeb0f951bee
+      username: nacos
+      password: nacos
+  service:
+    vgroup-mapping:
+      spring-cloud-seata-service-group: default
+  tx-service-group: spring-cloud-seata-service-group
+
+---
+spring:
+  profiles: dev    #配置dev环境nacos的地址、账号、namespace，暂时使用ali-test-nacos
+  cloud:
+    nacos:
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 54ad6dd2-ed0f-42fa-b3bf-adeb0f951bee
+        server-addr: ali-test-nacos.lp.com:80
+      config:
+        username: nacos
+        password: nacos
+        namespace: 54ad6dd2-ed0f-42fa-b3bf-adeb0f951bee
+        server-addr: ali-test-nacos.lp.com:80
+
+
+
+
