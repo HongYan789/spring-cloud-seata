@@ -23,7 +23,7 @@
 ```text
 - 1. spring-cloud-seata：根/父工程
     - 1.1 account-parent：			    账户微服务
-    	- 1.1.1 account-api				账户feign api服务
+      - 1.1.1 account-api				账户feign api服务
       - 1.1.2 account-service		账户核心service服务
     - 1.2 order-parent：					  订单微服务
       - 1.2.1 order-api					订单feign api微服务
